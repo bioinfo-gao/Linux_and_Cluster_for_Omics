@@ -1,0 +1,10 @@
+
+[user]
+        name = Zhen Gao 
+        email = bioinfo.gao@gmail.com
+[credential]
+        helper = cache --timeout 3600
+[push]
+        default = matching
+
+
