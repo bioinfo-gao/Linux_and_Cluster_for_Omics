@@ -7,3 +7,21 @@
 *Back*
 *BACKUP*
 *back*
+
+
+# 忽略所有 .log 文件
+*.log
+
+# 但是，不要忽略这一个特定的 log 文件
+!important_audit.log
+
+
+# 忽略所有 .log 文件
+*.txt 
+
+# 但是，不要忽略这一个特定的 log 文件
+!*WSL*.txt
+!*Linux*.txt
+!*Git*.txt
+!*tutorial*.txt
+!*experience*.txt

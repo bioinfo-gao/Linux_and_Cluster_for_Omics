@@ -1,0 +1,70 @@
+Distro using experience
+1) Ubuntu, quite stabe, large communuity, but not fit new user
+2) Mint, based on Ubuntu, perfect, especially, the mate style OVERALLY BEST !! for all levels
+ 先中文安装，再装sogou输入法比较顺畅，不会出错
+ 英文安装，再装sogou输入法，输入法调不出来。但是在装google 拼音 还行， 但是配置不方便，比如一行显示10个备选词，很难设置
+Mint Cinnamon needs about 300 MB of RAM right after booting.  在旧机器上cinnamon桌面屡次奔溃，只能运行后备模式，看来对系统资源少的老机器不稳定
+Mate needed about 350 MB of RAM. more like windows 7， 改font 很方便， dropbox 没问题，综合起来还是这个最好。
+XFCE needed a bit less than 250 MB of RAM. more like windows xp, but in general, the cinanmon, mate and xfce are all very similar， 输入法设置有点困，机器性能够用的话，还是mate首选， 
+性能较差，xfce 首选， xfce 下 dropbox 设置还是有点问题，改font 有点困难 
+KDE needed about 700 MB of RAM. KED 不比另外三个Desk Enviroments 更漂亮， 也算比较华丽， 4个desk漂亮程度差别不大， 但这个样子和另外三个差别较大
+KDE 可以在屏幕上加wigets 小工具，还挺方便的， 但我觉得过于花哨，桌面乱，也增加系统负担，
+kde 中文安装自带拼音输入法，就能不好用，装sogou输入法也不难
+dropbox的图标显示还是有问题。
+3) deepin, the chinese edition is quite good, but use too much resource, the terminal is gray color! junor level，综合最棒，尤其是4G以上内存的中等以上配置
+4) Zorin, based on Ubuntu, nearly same as ubuntu expcet the outlook. Have MS Winodws and OS-X style, junor level
+   more beautifle than ubunt, have animiation styel, use too much resources. good for new users
+5) LXLE, light ubunbut edit, good for old machine, but terminal is gray! and Chinese langugage support is not good, good for new users
+6) ChaletOS, based on Ubuntu, but totaly mimic MS Windows style, the terminal is grey! good for new users
+7) ElementaryOS, based on Ubuntu, very very beautifly, but the terminal is grey!, good for new users 
+8) FreeBSD PC-BSD, generally unix system, for PC-BSD 10 64 bit system and 4 Bit is needed, many choice of desktop enviroments
+在安装是不能选 cd.iso， 也不能选，dvd.iso, 只能选 memorystick.img
+FreeBSD 没有用图形界面， 有32bit 和 arm版本， 图形界面可以后装， 有 gnome2, kde4, xfce 三种选择，当然直接装pc-bsd 也不错， pkg 管理软件包, 安装图形界面不成功
+本地可以用 root 登录， 各种安装等等都可以进行
+9) Centos: Perfect for old machine, smll iso file, ~ 700 M, but not very good for new user, for intermediate to high level users, but the packages are generally  for stability not for new, centos 7 64bit and 4G memery needed  
+10) Debian the smallest install iso file, 300-400M, but needs internet to download many many additional packages, total installation is quite slow, for intermediate to high level users, many choise of desk enviments and servers, but the packages are generally for stability not for new 
+11) openSUSE, 无论U盘安装还是硬盘安装都极其困难，似乎光盘安装较好。 字体和界面并不如elementary （第一） 和 mint（第二） 美观。
+最终结合U盘安装 (官网 ImageUSB 软件) 加网络源的方式安装成功。 装了快8个小时
+包管理器用 zypp zypper yast
+https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows
+ http://os.51cto.com/art/201006/204494.htm
+网络源 (HTTP)  不是 (https)  source： download.openSuSE.org, path： /distribution/13.2/repo/oss
+字体和界面不如mint 和elementary 美观。
+调用su 的方式和 centos 一样. 直接 su, 没有sudo, terminal 也不如 mint 美观. 甚至不如 ubuntu 和centos 
+似乎可用用 rpm 但是不如原生 centos 好用, 在2G内存的机器上，开几个程序就run out of memory error。 最不喜欢的distro， 再无兴趣, generally a german distribition
+12） Lubuntu， 很小， 占用内存很小，good for old machine,  but terminal 是黑白的，主要用于GUI， 对新手比Ubuntu稍微友好一点, 对内存和硬盘的要求都只有ubuntu 和mint的 一半。 
+在老机器上我认为最棒。上网速度飞快
+使用很方便，因为和ubuntu基本完全一样, use lxde desk environments
+13) Xubunutu, resource usage bewteen the ubuntu and lubuntu, use xfce environment   
+14) Kubuntu, use KDE environment, now but supported by cannoical com. but I think it's much more beautifly than ubuntu，总体上占用资源应该比Ubuntu小，但我用起来系统不稳定。
+Kylin 是一个比较糟糕的系统。 CPU占用超过其他所有版本， RAM 占用也比较高
+15) Mageia, a fork of mandriva, a french distibution, quite beautiful, all kinds of enrionments selections, based on red hat and use rpm packages management，
+感觉还不错，选择中文安装则自动安装中文输入法
+Mandriva Linux uses a package manager called urpmi, which functions as a wrapper to the RPM package management system. 
+It is similar to Debian & Ubuntu's apt-get, Fedora & RedHat's YUM, or openSUSE/SUSE's ZYpp
+包管理器使用不习惯，wine 下的 福昕阅读器字体很差。 
+16) Manjaro linux, based on arch linux, not bad, but I knows little about arch linux 
+（或简称Manjaro）是基于Arch Linux的Linux发行版，使用Xfce作为默认桌面环境，和Arch一样，采用滚动更新,
+Manjaro Linux拥有开箱即用的多媒体支持、成熟的硬件识别软件，并支持多核CPU。Manjaro拥有命令行安装器和图形安装器。同时滚动更新也意味着用户无需通过重装系统或系统更新来更新自己的操作系统[19]。
+软件包管理由 Pacman处理，未来也计划提供一个GUI版本。Manjaro有32位和64位版本，且都与Arch兼容。
+这个disto 似乎与arch 很相似，安装软件似乎非常困难，没有成熟的软件包管理安装程序，连chrome 都需要编译安装
+似乎还是有Package Manage 安装 chrome, 安装中文输入法也需要命令行， 可以用sudo 类似ubuntu ，不类似centos
+比较难搞，不适合新手
+17) Cub Linux (Chromixium) chrome OS + ubuntu OS, or Chrome Ubuntu (C-Ub)界面比较美观，也较快，占用资源较小，但不太像普通linux， 目前只有英文版，也找不到中文输入法
+18) Puppy Linux (based on Ubunutu or slackware, 2 choice)， 中文有乱码，各种操作非常奇怪，不喜欢， 占用资源应该是最小的，安装包只有100多兆
+19) kali linux a very good one for security test(both hacker and anti-hacker), not friendly to new users at all
+20) Lite， 很小，可以作为启动盘， based on Ubuntu. quite similar as lubuntu and LXLE, these three generally are same, Lite software is quite good, a little better than ubuntu softeware center
+chrome web browser is included in the list, 一开始装不上， 依赖性没解决，后来 intall updates ， （Menu-Favorate-intall updates） 就搞定
+输入法基本按照ubuntu 安装 sogou ，再在input中设置一下也比较容易搞定， 顺便中文乱码也搞定， 总体上很令人满意，比 LXLE 和 Lubuntu 强, dropbox 图标出不来，很多distro 都有这个问题。 另外ssh。d安装不出来。
+terminal 字体色彩很好
+21) Tails, Debian based, 隐身系统， 难以追踪， Incognito uses the Tor network to make Internet traffic very hard to trace. 
+22） PClinux， 不够美观
+23） Ubuntu Mate ， 还可以， 默认界面类似 centos 的 gnome2， 和mint 的Mate 差异较大， 但是选择非常mint mate 风格的 （不过bar在顶部）， suse 风格， windows 风格， mac 风格
+24) AntiX, 可做启动盘，界面简略
+25) Bodhi Linux, 128 MB RAM, 2.5 GB hard disk space, and a 300 MHz processor,优雅、轻量级的 Enlightenment 窗口管理器, 没用过这系统还低的了，中文有乱码，只用英文，系统确实很流畅
+26) Q4os, 基于debian 的一个德国发行版，非常简单清晰的 windows xp 风格， 安装deb包需要用gdebi （软件包安装程序）， gdebi 需要synaptic package manager（新立得软件包管理器）安装。 sougou中文输入法顺利装上，出现图标，工作正常
+dropbox的图标出现正常并且选项一切正常。 非常非常令人满意，速度极快，比ubuntu mint 都快， 就是界面比较朴素，不是大问题, terminal 色彩默认是黑白，不太好。 快盘能够顺利装上并一切正常，在bar上还能正确显示快盘图标，很喜欢这个distro 
+唯一的问题是console 还是黑白的
+27） Peppermint, 基于lubuntu 和 linux mint ， 两者的混合物， 近乎完美， 预装 chromium 和dropbox， 图标正确显示， 占用系统解决lubuntu
+console 色彩彩色，颜色漂亮。 搜狗中文图标输入法显示正常，设置正常， 和在ubuntu上和mint上无区别。
+适用于老机器，总体非常完美。
