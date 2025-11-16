@@ -2,11 +2,11 @@
 .Rhistory
 .RData
 .Ruserdata
-*backup*
-*Backup*
-*Back*
-*BACKUP*
-*back*
+*backup/
+*Backup/
+*Back/
+*BACKUP/
+*back/
 
 
 # 忽略所有 .log 文件
@@ -15,13 +15,17 @@
 # 但是，不要忽略这一个特定的 log 文件
 !important_audit.log
 
-
 # 忽略所有 .log 文件
 *.txt 
 
 # 但是，不要忽略这一个特定的 log 文件
+# data/*.txt 只会对 data 文件夹第一层的 .txt 文件生效。
+# 如果你希望 data 文件夹及其所有子文件夹下的 .txt 文件都不被忽略，你需要使用两个星号 ** 来表示递归
+!**/data/**/*.txt
 !*WSL*.txt
 !*Linux*.txt
-!*Git*.txt
+!*Git*.txt*
 !*tutorial*.txt
 !*experience*.txt
+!*/data/*.txt 
+!*/data/**/*.txt
