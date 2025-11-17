@@ -7,6 +7,9 @@
 *Back/
 *BACKUP/
 *back/
+*tmp/
+*Tmp/
+*TMP/
 
 
 # 忽略所有 .log 文件

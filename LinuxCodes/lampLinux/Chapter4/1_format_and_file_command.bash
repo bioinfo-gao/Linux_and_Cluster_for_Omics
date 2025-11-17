@@ -1,16 +1,20 @@
 #! /home/gao/bash 
 # cmd [-option] [parameters]
-ls -la /etc
+ls -la /etc 
 
+# option can be used together -al == -al = -l -a
+# option has simplified and full format
+-a == --all
 
-cd
-cd -
-pwd
 ll -a
 lla
 ld
 
-ll ./tmp/tmp3_ZG/
+# mkdir recursively and touch a file 
+mkdir -p ./tmp/tmp3_ZG/3rd_level_dir/f  && touch ./tmp/tmp3_ZG/3rd_level_dir/file.txt 
+
+ 
+llh ./tmp/tmp3_ZG/
 ll ./tmp/tmp3_ZG/3rd_level_dir/file.txt
 cp -r tmp/tmp3_ZG/    tmp/tmp1_ZG/
 
