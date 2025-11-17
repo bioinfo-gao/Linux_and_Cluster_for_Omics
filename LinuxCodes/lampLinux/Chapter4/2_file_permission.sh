@@ -73,11 +73,11 @@ ll liuyifei
 mkdir meinv
 ls -ld meinv
 
-umask    # 0022  
+umask    # 0022  777-022
 umask -S # u=rwx,g=rx,o=rx
 touch fangbingbing
 ls -l fanbingbing # new file no exectutuon by default
 
-
+umask 023
 
 
