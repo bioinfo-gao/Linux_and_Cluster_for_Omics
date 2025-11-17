@@ -6,17 +6,19 @@ ls -la /etc
 # option has simplified and full format
 -a == --all
 
-ll -a
+ls -l -a -h -d -i
 lla
-ld
+ld # ls -ld */  -d 让 ls 本身列出目录条目（而不是目录内容） */ 是 shell 通配符，只匹配目录
+
+# -rwxr--rw-
+# u g o
 
 # mkdir recursively and touch a file 
-mkdir -p ./tmp/tmp3_ZG/3rd_level_dir/f  && touch ./tmp/tmp3_ZG/3rd_level_dir/file.txt 
+# mkdir -p ./tmp/tmp3_ZG/3rd_level_dir/f  && touch ./tmp/tmp3_ZG/3rd_level_dir/file.txt 
+# cp -r tmp/tmp3_ZG/    tmp/tmp1_ZG/
 
- 
 llh ./tmp/tmp3_ZG/
 ll ./tmp/tmp3_ZG/3rd_level_dir/file.txt
-cp -r tmp/tmp3_ZG/    tmp/tmp1_ZG/
 
 #cp -p tmp/tmp1_ZG/3rd_level_dir/    tmp/tmp1_ZG/3rd_level_dir_copy/ # keep file time etc
 
