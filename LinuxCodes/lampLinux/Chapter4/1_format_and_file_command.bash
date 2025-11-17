@@ -70,11 +70,15 @@ less /etc/services # page arrow down  or space
 head /etc/services # -n : n line 
 tail -n 3 /etc/services #  
 
-
+cp /etc/services  /home/gao/tmp/
 ln -s /home/gao/tmp/services service_link
 ln /home/gao/tmp/services service_hard
+
 ls -i /home/gao/tmp/services 
-ls -i  service_hard
+ls -i service_link
+ls -i service_hard
+ls -il service_link
+ls -il service_hard
 
 
 # sudo apt install locate # debian 
