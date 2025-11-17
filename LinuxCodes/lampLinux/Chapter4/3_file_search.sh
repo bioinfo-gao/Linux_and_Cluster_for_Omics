@@ -1,6 +1,4 @@
-# sudo apt install locate # debian 
-locate service
-
+=========== ++++++++++++++++ Part I
 # find file search, 默认精准搜索
 find /etc/ -name init
 sudo find /etc/ -name init
@@ -19,33 +17,56 @@ sudo blockdev --getbsz /dev/sda
 # 100M = 102400KB = 25600 block
 echo $((100 * 1024 * 1024 / 4096))  # 100M 文件换算成数据快
 
+# -ok -exec
+# -ok ask by each file,   hence -exec is much more popular
 sudo find /home/gao -type f -size +100M -exec ls -lh {} \; 2>/dev/null
 
 sudo find /etc -name *init* -a -type f -exec ls -l {} \; # must keep the space "{} \;""
-sudo find /etc -name *init* -a -type f -ok ls -l {}\;
+sudo find /etc -name *init* -a -type f -ok ls -l {} \; # {} \;  space is needed! 
 
 # 查找shencao的所有文件 -user 
 sudo find /home -user shencao #
+sudo find /home -user shencao -ok rm  {} \; ##
+# -group
 sudo find /home -group meinv #
 
-sudo find /home -user shencao -ok rm  {} \; ##
+# inode number 
 sudo find . -inum 19275595   -exec rm  {} \; ## 删除顽固文件
 sudo find . -inum 19275595   -exec ls -l  {} \; ## 展示详细信息
-# -ok -exec
 
+# -type f d l
 # 注意原始方法是找block数目，而且恒定在512Byte， 不是本机4096Byte就改成4096， 所以会找出来 15M的文件
 sudo find /home/gao -type f -size +25600 -exec ls -lh {} \; 2>/dev/null # 查找大于 $12.5\text{ MB}$ 的文件
 sudo find / -type f -size +5G -exec ls -lh {} \; 2>/dev/null # 单位有c K M G 
-
-
-pwd
-
 
 find /etc -size +100 # 100 block, 4096 in this linux 
 sudo find /etc -size +100  -a -size -2000 # larger than 100 block and less 2000 block
 #  -o or 
 
 find /etc -user gao # 100 block, 4096 in this linux 
+
+
+
+
+
+
+# 1. 过去10分钟内被修改过的文件
+find /your/path -mmin -10
+
+# 2. 过去30分钟内没人访问过的文件（适合清理临时文件）
+find /tmp -amin +30 -type f
+
+# 3. 过去1小时内被修改但没被访问过的文件（可能正在被后台程序写）
+find . -mmin -60 -amin +60
+
+# 4. 过去5分钟内被 chmod 或 chown 过的敏感文件（安全监控必备）
+find /etc /usr/bin /usr/sbin -cmin -5
+
+# 5. 精确到1分钟前修改的文件（监控实时日志）
+find /var/log -mmin -1 -name "*.log"
+
+# 与 -atime / -ctime / -mtime 的区别（天 vs 分钟)
+
 
 help find
 man find
@@ -55,209 +76,50 @@ man find
 find /etc -cmin -5   # less than 5min 
 
 sudo tune2fs -l /dev/sda1 | grep -i 'block size'
-#Block size:               1024
+# Block size:       1024
 
 lsblk -o NAME,PHY-SeC # chek th block size 4096
 
-touch --help
-man find     # command 
-man services # configure file 
-man passwd # configure file 
-whereis passwd
-whatis passwd
-man 1 passwd # configure file 
-man 5 passwd # configure file 
-apropos passwd 
 
-w
-who
+=========== ++++++++++++++++ Part II 
 
-date
-man date 
-info date
+# sudo apt install locate # debian 
+# sudo dnf install mlocate # or sudo yum install mlocate
+# sudo updatedb # mlocate 程序本身已安装，但它的自动数据库更新功能（定时器）未能成功配置。
+locate service
+locate -i service  # 
+locate inittab
+locate locate  # /tmp not indexed
 
-data --help # BASH buildin command 
-which cd # No path are buildin command 
+
+# which command 
+which ls      # see the dir color  is alias
+ls -l
+/usr/bin/ls -l # use the raw command directly
+which rm
+which cd               # No path are buildin command 
 which umask
-whereis umask
-cd --help
-umask --help
-help umask 
-help cd
 
-cd --help
-clear 
+whereis umask   # 命令和帮助信息
+whereis passwd  # 命令和配置文件
+whatis  passwd
 
-which ls
-
-cd tmp
-ll
-cat file.txt
-less /etc/inittab
-
-grep world file.txt
-grep -i world file.txt
-
-ll /home/gao/tmp/services 
-ll service_link
-ll
-
-cd 
- 
+clear # = Ctrl + l
 cp -r tmp1_ZG/ tmp3_ZG/
+sudo cp /etc/services  .
+sudo cp /etc/inittab .
 cp services  services2
+cp services  services3
+cp -r /home/gao/Code/Linux_and_Cluster_for_Omics/LinuxCodes/lampLinux/tmp .
+
+cat inittab
+grep service /etc/inittab
+grep -v ^#  /etc/inittab # -v  ;  Begninging # 
+grep world file.txt
+grep -i world file.txt 
 
 
 gzip services2
 gzip tmp2_ZG 
 gzip   tmp2_ZG.tar tmp2_ZG # Only for FIles
-
-tar -cvf tmp2_ZG.tar tmp2_ZG # creat tar 
-
-mkdir tmp2_ZG
-
-#=== workfor Both dir And file , Both WINdows And Linux
-zip tmp2_ZG.zip tmp2_ZG 
-unzip tmp2_ZG.zip  
-
-
-# keep the orinigal file with -k 
-bzip2 -k testfile  # 
-bzip2 tmp2_ZG  # bzip2: Input file tmp2_ZG is a directory.
-bunzip2 tmp2_ZG.bz2  # bzip2: Input file tmp2_ZG is a directory. -k keep the bz2 file
-
-tar -cvf tmp2_ZG.tar tmp2_ZG # creat tar 
-gzip   tmp2_ZG.tar
-tar -zcf tmp3_ZG.tar.gz tmp3_ZG  # create tar and make gz
-tar -zxf tmp3_ZG.tar.gz 
-
-tar -jcf tmp3_ZG.tar.gz tmp3_ZG  # create tar and make gz
-tar -jxf tmp3_ZG.tar.gz  # open the tar
-
-sudo shutdown -r now # no shutdown allowed for server           -h for shutdown
-sudo shutdown -c # cancel the shutdown
-
-# halt
-# poweroff
-# init 0
-
-# === reboot
-# reboot
-# init 6
-
-# cat /etc/inittab # already depreciated!
-runlevel
-
-logout # 
-
-alias
-# find the eaact configure for alias
-PS4='+$BASH_SOURCE> ' BASH_XTRACEFD=7 bash -xl 7> /tmp/mylog
-grep "alias " /tmp/mylog | grep -e /home -e /etc
-
-whereis ls
-whereis cd #system builtin command
-Ctrl A #to the begininng to command
-Ctrl E #to the end to command
-Ctrl U # del back to the begining and copy the sentence
-Ctrl K # del to the end and copy the sentence
-Ctrl Y # paste the content from Ctrl U
-Ctrl Z # to background
-
-ls >> Correct_Info_Only 2>>Error_Info_Only 
-ddadaddd >> Correct_Info_Only 2>>Error_Info_Only 
-cat Correct_Info_Only  
-cat Error_Info_Only 
-
-
-lsd &>> /dev/null  # combine  correct and error together
-psd >> error_and_message.txt 2>&1  # add error to coccect message then put the mssage to file
-
-wc < error_and_message.txt 
-# wc << dada 
-#  xdsssdadadda 
-
-# dada # command input another dada (same string in the 1st line to do wc)
- 
-ls ; date ; cd /user ; pwd # no logic relation at all
-
-date ; dd if=/dev/zero of=~/testfile bs=1k count=100000; date
-
-ll && echo yes
-lldada || echo no
-ll && echo yes !! echo no
-
-lls && echo yes !! echo no
-
-history | less | tail # pipe
-
-grep "root"  /etc/passwd # -i -v -n
-
-netstat -an | grep ESTAB* 
-sudo apt install net-toolsgao
-
-echo "the current time is :" `date`
-name=gz
-echo '$name'
-echo "$name"
-echo $name
-echo `date`
-current_time=`date`    # a command
-current_time=$(date)   # same as `` but is recommneded as `` is hard to distiguish from ''
-echo $current_time
-echo $(date)
-name2=$(date) # name2=`date`
-
-echo $name2
-ll
-
-name3=${name2}25896
-name3="$name2"123564
-
-echo $name3
-
-set
-export name=tmp1_ZG
-echo $name
-pstree
-
-set | grep name
-env # all env variable
-
-echo $?
-echo $$
-echo $!
-
-# method 1
-aa=11
-bb=22
-declare -i cc=$aa+$bb
-echo $cc
-
-# method2
-dd=$(expr $aa + $bb) # blank arround "+" needed
-echo $dd
-
-# method3
-ff=$[ $aa+$bb ] 
-echo $ff
-
-# method4
-gg=$(( $aa+$bb )) 
-echo $gg
-
-# mutiple 
-qq=$[ (11+3)*3/2 ] 
-echo $qq
-
-qq=$[ (11+3)%3 ] 
-echo $qq
-
-qq=$[ 1 && 0 ] # logical and 
-echo $qq
-
-qq=$(( 1 || 0 ))  # logical and 
-echo $qq
-
-# the PATH don't knkow the raw location I added to ~/.bashrc as a lot of people
 
