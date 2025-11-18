@@ -45,6 +45,20 @@ dd p  # paste to next line
 
 ndd P # P paste to the Above line 
 
+r # replace a character 
+R # replace a string until Esc to end replace 
+
+/string # search 
+set ic  # ignore case 
+n # next string 
+:%s/old/new/g  #global replacement 
+:n1, n2 s/old/new/g  #global replacement 
+:n1, n2 s/old/new/c  #global replacement with asking 
+
+:wq
+:wq! #save by force 
+ZZ == :wq
+
 
 
 Edit Mode     : start with :, then input cmd in edit mode c, q to quit 
