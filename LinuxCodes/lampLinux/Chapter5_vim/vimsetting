@@ -1,3 +1,5 @@
+# the following used in ~.vimrc file 
+# source .vimrc
 set nu
 colorscheme ron
 set expandtab
