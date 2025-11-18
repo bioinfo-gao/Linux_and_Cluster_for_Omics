@@ -1,60 +1,38 @@
-man ls       # command 
-man find     # command 
-man services # configure file 
-# man /etc/services # NOT corret way, show whole file
-man passwd   # configure file 
-man 1 passwd # configure file 
-man 5 passwd # configure file 
-apropos passwd 
+history | less | tail # pipe
 
-touch --help
+grep "root"  /etc/passwd # -i -v -n
 
+netstat -an | grep ESTAB* 
+sudo apt install net-toolsgao
 
-w
-who
+echo "the current time is :" `date`
+name=gz
+echo '$name'
+echo "$name"
+echo $name
+echo `date`
+current_time=`date`    # a command
+current_time=$(date)   # same as `` but is recommneded as `` is hard to distiguish from ''
+echo $current_time
+echo $(date)
+name2=$(date) # name2=`date`
 
-date
-man date 
-info date
-
-data --help # BASH buildin command 
-cd --help
-umask --help
-help umask 
-help cd
-
-cd --help
-clear 
-
-
-
-cd tmp
+echo $name2
 ll
-cat file.txt
-less /etc/inittab
 
+name3=${name2}25896
+name3="$name2"123564
 
-tar -cvf tmp2_ZG.tar tmp2_ZG # creat tar 
+echo $name3
 
-mkdir tmp2_ZG
+set
+export name=tmp1_ZG
+echo $name
+pstree
 
-#=== workfor Both dir And file , Both WINdows And Linux
-zip tmp2_ZG.zip tmp2_ZG 
-unzip tmp2_ZG.zip  
+set | grep name
+env # all env variable
 
-
-# keep the orinigal file with -k 
-bzip2 -k testfile  # 
-bzip2 tmp2_ZG  # bzip2: Input file tmp2_ZG is a directory.
-bunzip2 tmp2_ZG.bz2  # bzip2: Input file tmp2_ZG is a directory. -k keep the bz2 file
-
-tar -cvf tmp2_ZG.tar tmp2_ZG # creat tar 
-gzip   tmp2_ZG.tar
-tar -zcf tmp3_ZG.tar.gz tmp3_ZG  # create tar and make gz
-tar -zxf tmp3_ZG.tar.gz 
-
-tar -jcf tmp3_ZG.tar.gz tmp3_ZG  # create tar and make gz
-tar -jxf tmp3_ZG.tar.gz  # open the tar
 
 sudo shutdown -r now # no shutdown allowed for server           -h for shutdown
 sudo shutdown -c # cancel the shutdown
@@ -111,40 +89,6 @@ ll && echo yes !! echo no
 
 lls && echo yes !! echo no
 
-history | less | tail # pipe
-
-grep "root"  /etc/passwd # -i -v -n
-
-netstat -an | grep ESTAB* 
-sudo apt install net-toolsgao
-
-echo "the current time is :" `date`
-name=gz
-echo '$name'
-echo "$name"
-echo $name
-echo `date`
-current_time=`date`    # a command
-current_time=$(date)   # same as `` but is recommneded as `` is hard to distiguish from ''
-echo $current_time
-echo $(date)
-name2=$(date) # name2=`date`
-
-echo $name2
-ll
-
-name3=${name2}25896
-name3="$name2"123564
-
-echo $name3
-
-set
-export name=tmp1_ZG
-echo $name
-pstree
-
-set | grep name
-env # all env variable
 
 echo $?
 echo $$
