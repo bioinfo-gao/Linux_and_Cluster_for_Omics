@@ -1,12 +1,3 @@
-history | less | tail # pipe
-
-grep "root"  /etc/passwd # -i -v -n
-
-netstat -an | grep ESTAB* 
-sudo apt install net-toolsgao
-
-echo "the current time is :" `date`
-name=gz
 echo '$name'
 echo "$name"
 echo $name
@@ -37,16 +28,7 @@ env # all env variable
 sudo shutdown -r now # no shutdown allowed for server           -h for shutdown
 sudo shutdown -c # cancel the shutdown
 
-# halt
-# poweroff
-# init 0
 
-# === reboot
-# reboot
-# init 6
-
-# cat /etc/inittab # already depreciated!
-runlevel
 
 logout # 
 
@@ -126,4 +108,5 @@ qq=$(( 1 || 0 ))  # logical and
 echo $qq
 
 # the PATH don't knkow the raw location I added to ~/.bashrc as a lot of people
+
 
