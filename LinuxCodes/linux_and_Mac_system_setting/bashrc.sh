@@ -4,7 +4,11 @@ export CLICOLOR=1
 alias l="ls -CF"
 alias ll="ls -l"
 alias la="ls -a"
+alias ld="ls -d -l */"
+alias lld="ls -dl */"
 alias lla="ls -la"
+alias lh="ls -lah"
+alias llh="ls -lah"
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
