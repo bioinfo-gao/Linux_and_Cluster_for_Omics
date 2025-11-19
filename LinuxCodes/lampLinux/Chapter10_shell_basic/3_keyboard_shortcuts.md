@@ -1,3 +1,4 @@
+# 快捷键 shortcut 
 Ctrl + C # stop 
 Ctrl + L # clear
 Ctrl + U # delete all earlier characteristics

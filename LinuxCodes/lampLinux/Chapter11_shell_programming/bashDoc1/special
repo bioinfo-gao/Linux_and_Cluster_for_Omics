@@ -1,6 +1,0 @@
-#!/bin/bash
-
-echo "hello specila character"
-echo "current directory is `pwd`"
-echo "current directory is pwd"
-
