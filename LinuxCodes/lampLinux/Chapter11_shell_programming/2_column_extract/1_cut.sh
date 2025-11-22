@@ -1,5 +1,6 @@
 # 提取字符串
 # cat ../data/student1.txt # 分割符必须是tab ， 不能是空格
+# 实际上除了空白作为分割，有tab， ， ：等分隔符的， 尽量用cut
 # cut -f 2 ../data/student1.txt 
 cut -f 1 ../data/stu.txt 
 cut -f 2 ../data/stu.txt 
