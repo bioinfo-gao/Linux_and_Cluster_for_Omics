@@ -1,5 +1,5 @@
-ID	Name	Ave_Score  PHP     Linux    MySQL  
-1	Zhen   	80         80         70      90                 
+ID	Name	Ave_Score   PHP Linux   MySQL  
+1	Zhen    80         80         70      90                 
 2	bao	95         90         100     95
 3	xiao	99         98         99      100
 4       bao     99         98         99      100
