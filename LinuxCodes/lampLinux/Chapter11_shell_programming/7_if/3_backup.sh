@@ -9,6 +9,7 @@ if [ -d /tmp/dbback ]
         echo "size is $date" >>/tmp/dbback/db.txt
         cd /tmp/dbback
         tar -zcf etc_$date.tar.gz /etc db.txt &>/dev/null
+        #tar -zcf mysql-lib_$date.tar.gz /var/lib/mysql  &>/dev/null
         rm -rf /tmp/dbback/db.txt
     else 
         mkdir /tmp/dbback

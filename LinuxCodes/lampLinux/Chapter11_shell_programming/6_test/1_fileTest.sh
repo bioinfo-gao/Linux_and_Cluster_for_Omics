@@ -1,4 +1,5 @@
 #!/bon/bash
+# 文件性质测试
 test -e ../data/student.txt # 无显示值
 
 echo $?  # 0 means no error
@@ -11,4 +12,7 @@ test -e /etc/passwd
 [ -e /etc/passwd ] && echo "yes, it's exist" || echo no
 [ -w student.txt ]
  && echo "yes, it's exist and writable" || echo no
+
+
+
 
