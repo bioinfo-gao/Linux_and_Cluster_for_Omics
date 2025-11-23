@@ -1,0 +1,34 @@
+
+步骤一：查看当前稀疏检出模式（可选）
+您可以先查看当前设置了哪些目录：
+
+Bash
+
+cat .git/info/sparse-checkout
+
+
+
+
+
+步骤二：将目标目录添加到稀疏检出模式
+您的大部分文件都位于 Linux_Code_LampBrother/ 目录下。您需要将该目录下的所有内容添加到稀疏检出模式中。
+
+Bash
+
+# 激活稀疏检出模式（如果尚未激活）
+git sparse-checkout init 
+
+# 添加目标目录。
+# 注意：如果您只想添加 Chapter10 和 Chapter11，可以精确指定。
+# 如果您想添加所有位于 Linux_Code_LampBrother/ 下的文件：
+git sparse-checkout set --add Linux_Code_LampBrother/
+
+只想添加您列出的那些文件所在的最顶层目录，请这样添加：
+
+Bash
+
+git sparse-checkout add Linux_Code_LampBrother/
+git sparse-checkout add Linux_Code_Other_and_SystemSetting/
+git sparse-checkout add git/
+git sparse-checkout add linux_and_Mac_system_setting/
+git sparse-checkout add run_code_and_formatting_in_vsCode/

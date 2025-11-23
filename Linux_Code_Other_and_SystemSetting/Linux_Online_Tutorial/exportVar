@@ -1,0 +1,24 @@
+#!/bin/bash
+echo "Path is $PATH"  ## $PATH will be expanded
+#double quotes when you want only variables and command substitution.
+#Variable - Yes
+# Wildcards - No
+# Command substitution -yes
+echo 'I want to print $PATH' ## PATH will not be expanded
+
+echo "Path is \$PATH" # \ escape the $
+
+echo "A monkey-tailed boy named Goku is found by an old martial \
+arts expert who raises him as his grandson. One day Goku meets a \
+girl named Bulma and together they go on a quest to retrieve the seven D\
+ragon Balls"
+
+export backup="/nas10/mysql"
+echo "Backup dir $backup"
+bash
+echo "Backup dir $backup"
+#By default all user defined variables are local. They are not exported to new processes. Use export command to export variables and functions to child processes. If no variable names or function names are given, or if the -p option is given, a list of all names that are exported in this shell is printed. An argument of -n says to remove dthe export property from subsequent NAMEs.
+
+export -p
+bash
+echo "Bachup $backup"

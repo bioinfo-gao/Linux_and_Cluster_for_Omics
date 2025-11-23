@@ -1,0 +1,8 @@
+# the following used in ~.vimrc file 
+# source .vimrc
+set nu
+colorscheme ron
+set expandtab
+set shiftwidth=4
+set softtabstop=2
+set smartindent

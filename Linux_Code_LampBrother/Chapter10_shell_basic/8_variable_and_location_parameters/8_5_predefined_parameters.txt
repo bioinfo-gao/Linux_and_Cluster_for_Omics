@@ -1,0 +1,33 @@
+###### (1) ===============
+Positional Parameters and Arguments:
+$0: The name of the script or shell being executed.
+$1, $2, ... $n: Positional parameters representing the arguments passed to the script, where $1 is the first argument, $2 is the second, and so on.
+$#: The number of positional parameters (arguments) passed to the script. 
+$@: All the positional parameters (arguments) as separate words, suitable for iterating through them.
+$*: All the positional parameters (arguments) as a single word, separated by the first character of IFS (Internal Field Separator).
+
+###### (2) ===============
+Exit Status and Process Information:
+$?: The exit status of the last executed command. A value of 0 typically indicates success, while a non-zero value indicates an error.
+$$: The process ID (PID) of the current shell.
+$!: The process ID (PID) of the last command executed in the background.
+
+###### (3) ===============
+Shell Options and Environment:
+$-: The current options set for the shell.
+$_: The last argument of the previous command.
+
+$HOME: The current user's home directory.
+$PATH: A colon-separated list of directories where the shell searches for executable commands.
+$USER: The username of the current user.
+$BASH_VERSION: The version of the Bash shell.
+$PWD: The current working directory.
+$OSTYPE: The operating system type.
+
+###### (4) ===============
+Special Purpose Variables:
+PS1: The primary prompt string displayed by the shell.
+PS2: The secondary prompt string, used when a command requires more input.
+IFS: Internal Field Separator, used by the shell to split words in command lines and during expansion of special parameters like $*.
+
+These predefined variables are essential for writing robust and interactive Bash scripts, allowing access to critical information about the execution environment and user input.

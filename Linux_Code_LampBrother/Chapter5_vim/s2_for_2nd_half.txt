@@ -1,0 +1,54 @@
+#zhen.gao@yahoo.com
+#Tue Jan  6 10:15:54 CST 2015
+#shenchao is a nice girl,
+zhen.gao@yahoo.com
+we like him
+
+shenchao is a nice girl
+we like him
+
+#
+#Liming is a nicesssss girl
+#we like him
+#
+#
+#Liming 
+#we like hmadd more character
+#
+#
+#shece girl
+#we like him
+
+Shenchao is a nice girl,
+this is a replacing mode
+
+shenchao is a nice girl,
+we like him
+
+Tue Jan  6 10:12:40 CST 2015
+s1.txt
+s2.txt
+shenchao is a nice girl,
+we like him
+
+shenchao is a nice girl
+we like him
+
+
+Liming is a nicesssss girl
+we like him
+
+
+Liming 
+we like hm
+
+
+shece girl
+we like him
+
+Shenchao is a nice girl,
+this is a replacing mode
+
+shenchao is a nice girl,
+we like him
+
