@@ -1,8 +1,0 @@
-ID	Name	Ave_Score  PHP     Linux    MySQL  
-1	Zhen   	80         80         70      90                 
-2	bao	95         90         100     95
-3	xiao	55         98         55      100
-4       bao     55         98         55      100
-5       Junyi   99         98         99      100
-6       Lena    99         98         99      100
-7       Maribella 99         98         99      100

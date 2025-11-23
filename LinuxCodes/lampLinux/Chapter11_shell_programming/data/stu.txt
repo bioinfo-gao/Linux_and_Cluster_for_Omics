@@ -1,4 +1,0 @@
-ID	Name	Score
-1	Zhen   	100
-2	bao	100
-3	xiao	99
