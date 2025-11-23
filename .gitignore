@@ -11,6 +11,10 @@
 *Tmp/
 *TMP/
 *temp/
+*tmp
+*Tmp
+*TMP
+*temp
 
 
 # 忽略所有 .log 文件

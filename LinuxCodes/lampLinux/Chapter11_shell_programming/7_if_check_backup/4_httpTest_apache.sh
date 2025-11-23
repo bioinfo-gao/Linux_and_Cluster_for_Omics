@@ -8,5 +8,6 @@ if [ "$port" == "open" ]
     then
         echo "The port is healthy"
     else
-        echo "The port is closed , please take care"
+        /etc/rc.d/init.d/httpd start &>/dev/null 
+        echo "The port is closed for some reason, please take care or check"
 fi

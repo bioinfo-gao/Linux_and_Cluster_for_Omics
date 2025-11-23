@@ -6,4 +6,4 @@ for (( i=1;i<=100;i=i+1 ))
     do 
         y=$(( $y+$i ))
     done
-echo $y
+echo $y # 5050

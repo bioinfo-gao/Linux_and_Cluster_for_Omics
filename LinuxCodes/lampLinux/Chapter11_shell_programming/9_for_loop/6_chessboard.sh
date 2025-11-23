@@ -1,5 +1,5 @@
 #!/bin/bash
-for (( i = 1; i <= 8; i++ )) ### Outer for loop ###
+for (( i = 1; i <= 8; i++ )) ### Outer for loop ### 注意是双括号！！
 do
    for (( j = 1 ; j <= 8; j++ )) ### Inner for loop ###
    do
