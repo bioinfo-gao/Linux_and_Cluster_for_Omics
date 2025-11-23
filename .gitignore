@@ -35,3 +35,4 @@
 !*experience*.txt
 !*/data/*.txt 
 !*/data/**/*.txt
+!_backup/

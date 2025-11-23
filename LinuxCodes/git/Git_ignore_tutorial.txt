@@ -69,6 +69,8 @@ git check-ignore -v LinuxCodes/WSL_git_sparse_checkout.txt
 $ git check-ignore -v LinuxCodes/WSL_git_sparse_checkout.txt
 C:/Users/zhen-/.gitignore_global:23:*.txt       LinuxCodes/WSL_git_sparse_checkout.txt
 
+git check-ignore -v LinuxCodes/lampLinux/Chapter11_shell_programming/7_if_check_backup/
+.gitignore:5:*backup/   LinuxCodes/lampLinux/Chapter11_shell_programming/7_if_check_backup/
 
 如果一个文件没有被忽略，这个命令将不会有任何输出。
 
