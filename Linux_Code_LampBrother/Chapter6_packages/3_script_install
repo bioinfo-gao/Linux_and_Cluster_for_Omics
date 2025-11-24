@@ -9,3 +9,9 @@ sudo  dnf install webmin usermin
 
 https://172.21.22.209:10000/ 
 # http://127.0.0.1:555/  local linux computer
+
+# gao@ DESKTOP-C8OKE65  11:03 $ sudo systemctl enable webmin
+# webmin.service is not a native service, redirecting to systemd-sysv-install.
+# Executing: 
+
+sudo /usr/lib/systemd/systemd-sysv-install enable webmin
