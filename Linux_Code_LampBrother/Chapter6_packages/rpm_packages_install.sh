@@ -67,3 +67,5 @@ sudo dnf -y update httpd  # 1 min
   
 yum grouplist # 查询所有可用软件group
 yum groupinstall # install group
+
+
