@@ -69,3 +69,5 @@ yum grouplist # 查询所有可用软件group
 yum groupinstall # install group
 
 
+
+

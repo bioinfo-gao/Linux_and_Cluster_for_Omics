@@ -1,0 +1,11 @@
+# 硬件驱动还经常有脚本安装包
+
+curl -o webmin-setup-repo.sh https://raw.githubusercontent.com/webmin/webmin/master/webmin-setup-repo.sh
+sudo sh webmin-setup-repo.sh  -y
+
+# Webmin and Usermin can be installed with:
+sudo  dnf install webmin usermin
+
+
+https://172.21.22.209:10000/ 
+# http://127.0.0.1:555/  local linux computer

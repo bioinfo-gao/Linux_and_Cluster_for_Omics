@@ -1,5 +1,5 @@
 # 源码包和rpm包在安装之后的区别，最大的一代就是安装位置
-
+# 真实服务器上，任意软件只可能安装rpm包或者源码包，不可能都安装
 #源码包一般在
 /usr/local/软件名
 
@@ -167,4 +167,10 @@ ifconfig
 
 # find the IP address 172.21.22.209
 input the IP address in any webbrowser
-The figure shows "It works!"
+The figure shows "It works!" （如截屏）
+
+# uninstall
+rm -rf /usr/local/apache2/ # NO any debris, 没有任何垃圾文件
+
+# 不需要卸载命令
+# 对外服务的高频软件建议源码安装，其他低频使用的，包括gcc yum 即可
