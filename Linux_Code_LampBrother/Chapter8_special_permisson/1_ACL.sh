@@ -43,5 +43,45 @@ other::r--
 # 2. setfacl: set ACLs
 # set a specific entry
 setfacl -m g:marketing:r-x /projects/collaboration/
+
 # Remove a specific entry 
 setfacl -x u:bob /projects/collaboration/
+
+setfacl -m u:zhen:r-x myfile.txt
+#setfacl -m u:zhen:w-x myfile.txt
+
+ll .
+# -rw-r--r--  1 gao gao 1158 Nov 24 21:46 1_ACL.sh
+# -rw-rwxr--+ 1 gao gao    0 Nov 24 21:21 myfile.txt
+
+# 注意上一行的 "+"     myfile.txt
+getfacl  myfile.txt
+# file: myfile.txt
+# owner: gao
+# group: gao
+
+# user::rw-
+# user:zhen:-wx
+# group::r--
+# mask::rwx
+# other::r--
+
+sudo groupadd group2
+
+setfacl -m g:group2:r-x myfile.txt
+
+ll
+-rw-r--r--  1 gao gao 1534 Nov 24 21:51 1_ACL.sh
+-rw-rwxr--+ 1 gao gao    0 Nov 24 21:21 myfile.txt
+
+getfacl myfile.txt
+
+# file: myfile.txt
+# owner: gao
+# group: gao
+user::rw-
+user:zhen:-wx
+group::r--
+group:group2:r-x
+mask::rwx
+other::r--
