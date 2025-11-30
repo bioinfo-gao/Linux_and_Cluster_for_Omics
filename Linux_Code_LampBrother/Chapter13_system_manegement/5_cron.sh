@@ -9,8 +9,8 @@ chkconfig --list | grep crond  # 查看cron服务状态
 systemctl status crond         # 查看cron服务状态
 systemctl start crond          # 启动cron服务
 
-crontab -l                      # 查看当前用户的定时任务
-crontab -e                      # 编辑当前用户的定时任务
+crontab -l        # 查看当前用户的定时任务
+crontab -e        # 编辑当前用户的定时任务, 实际上是vim
 # crontab文件格式: 分 时 日 月 周      ==>> 命令
 # 示例: 每天凌晨2点执行备份脚本
 0 2 * * * /path/to/backup_script.sh >> /path/to/backup.log 2>&1
@@ -34,3 +34,8 @@ crontab -e                      # 编辑当前用户的定时任务
 # 示例: 每周二的凌晨6点05分重启服务器
 5 6 * *  2 /sbin/shutdown -r now >> /path/to/backup.log 2>&1
 5 6 * *  2 echo $(date) >> /tmp/test_cron.log 2>&1
+
+# 创建备份脚本的硬链接到本章节目录，方便演示cron定时任务
+# ln 源文件 目标文件
+ln /home/gao/Code/Linux_and_Cluster_for_Omics/Linux_Code_LampBrother/Chapter11_shell_programming/7_if_check_backup/3_backup.sh \
+   /home/gao/Code/Linux_and_Cluster_for_Omics/Linux_Code_LampBrother/Chapter13_system_manegement/3_backup_hardlink.sh
