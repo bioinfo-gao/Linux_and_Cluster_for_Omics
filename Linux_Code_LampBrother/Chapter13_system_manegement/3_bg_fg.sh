@@ -1,0 +1,48 @@
+# (3) =============后台运行进程 & 和 nohup
+command &             # 在后台运行命令
+nohup command &       # 即使退出终端也继续运行命令
+jobs                  # 查看当前用户的后台任务
+fg %1                 # 将后台任务1带到前台
+bg %1                 # 将任务1继续在后台运行   
+bg  %2                 # 将任务2继续在后台运行
+fg %2                 # 将任务2带到前台
+
+
+# 把工作放入后台的两个方法， & 和 Ctrl + Z 
+# (1)使用 & 符号将命令放入后台 ===> 运行, 这个在后台是运行的
+tar -zxf etc.tar.gz /etc &   # 将解压命令放到后台运行
+jobs                     # 查看后台任务
+fg %1                    # 将后台任务1带到前台
+# （1.1） 与 nohup 命令联合使用，将命令放入后台运行，即使退出终端也继续运行
+nohup tar -zxf etc.tar.gz /etc &   # 将解压命令放到后台运行, 即使退出终端也继续运行
+
+# (2)使用 Ctrl + Z 将正在运行的命令放入后台， 这个在后台是暂停的，不运行的，需要用 bg 命令继续运行
+top + Ctrl + Z    # 暂停top命令, 放入后台不再执行
+bg               # 查看后台任务
+jobs               # 查看后台任务
+bg %1              # 继续在后台运行top命令
+fg %1              # 将top命令带到前台运行
+
+
+# =============================================
+jobs 命令：查看所有后台作业jobs
+
+$ jobs
+[1]-  Running                 tar -zxf etc.tar.gz /etc &
+[2] - Running                 find / -name "*.log" &
+[3] + Stopped (signal)        vim my_file.txt
+
+
+top #+ Ctrl + Z  # 暂停top命令, 放入后台不再执行
+
+jobs
+[1]-  Running                 tar -zxf etc.tar.gz /etc &
+[2] + Stopped                 top   
+
+
+
+vim my_file.txt &
+现在 vim 仍在后台运行，但您已经回到了 提示符，可以执行其他命令。
+
+fg 1     # fg %1    均可 将 vim 带到前台继续编辑 my_file.txt 文件
+bg 1     # bg %1 将 vim 带到前台继续编辑 my_file.txt 文件
