@@ -47,9 +47,12 @@ git sparse-checkout set LinuxCodes
 # 根据规则，检出文件到工作目录
 git checkout
 
+# show the git sparse-checkout folder list 
+git sparse-checkout list
+git sparse-checkout add git_and_WSL
 
-
-
+cd Code/Linux_and_Cluster_for_Omics
+git mv  git git_and_WSL
 
 
 大功告成！
