@@ -1,3 +1,5 @@
+<font color="blue">each partition</font> 
+
 目录结构
 
 ###### The root directory of the file system (/)
