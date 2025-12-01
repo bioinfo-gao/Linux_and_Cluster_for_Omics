@@ -26,12 +26,14 @@ tail -f /var/log/messages   # 实时查看系统日志文件内容
 /var/log/lastlog   # only accessed by last and lastlog 命令，显示所有用户的最后登录时间
 /var/log/faillog   # 记录失败的登录尝试
 /var/log/secure    # 记录与安全相关的消息，如认证和授权
+/var/log/wtmp      # 记录所有登录和注销活动 last命令读取该文件
+/var/log/utmp      # 记录当前登录的用户信息 who命令读取该文件
 /var/log/maillog   # 记录邮件服务器的活动
 /var/log/httpd/    # 记录Apache HTTP服务器的访问和错误日志
 /var/log/nginx/    # 记录Nginx服务器的访问和错误日志
 cat /var/log/yum.log   # 记录使用YUM包管理器安装、更新和删除软件包的活动    
 
-
+# 源码包的log不在/var/log下，一般在源码包目录下的logs或log目录中
 
 
 # (3) =============
