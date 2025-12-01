@@ -123,3 +123,61 @@ logrotate -v /etc/logrotate.conf   # 手动执行logrotate进行日志轮转
 # -v 选项用于显示详细的轮转过程信息
 # 手动执行logrotate时，建议加上-v选项，以便查看轮转过程和结果
 # -f 强制轮转日志文件，即使不满足轮转条件也会执行轮转操作
+
+
+cpio 主要做两件事：
+打包 (Copy-Out)：从标准输入 (stdin) 读取一个文件列表，然后把这些文件打包成一个单一的、连续的归档文件（archive file），并输出到标准输出 (stdout)。
+解包 (Copy-In)：从标准输入 (stdin) 读取一个归档文件，然后根据归档中的内容在当前目录下恢复（解包）出原始的文件和目录。
+
+1. Copy-Out 模式 (-o 或 --create)
+作用：创建归档文件（打包）。
+工作流程：[生成文件列表的命令] | cpio -o > archive_name.cpio
+经典示例：
+假设你想把当前目录下的所有 .txt 文件打包。
+
+
+# 1. 使用 find 命令来生成文件列表
+#    find . -name "*.txt"  会找出所有 .txt 文件并打印它们的路径
+
+# 2. 通过管道 | 将这个列表喂给 cpio -o
+# 3. 使用 > 将 cpio 输出的归档内容重定向到一个文件里
+find . -name "*.txt" | cpio -o > text_files.cpio
+
+
+
+
+2. Copy-In 模式 (-i 或 --extract)
+作用：提取归档文件（解包）。
+工作流程：cpio -i < archive_name.cpio
+经典示例：
+你想解开刚才创建的 text_files.cpio 归档。
+
+
+
+
+# 1. 使用 < 从文件中读取归档内容，并将其作为 cpio 的标准输入
+# 2. cpio -i 会读取这个输入流并解包
+cpio -i < text_files.cpio
+
+3. Pass-Through 模式 (-p 或 --pass-through)
+作用：不创建归档文件，而是直接将文件从一个目录复制到另一个目录。
+工作流程：[生成文件列表的命令] | cpio -p /path/to/destination_directory
+经典示例：
+你想把 /home/user/source_dir 目录下的所有内容，原封不动地复制到 /mnt/backup/ 目录下，并保持所有文件属性（如权限、时间戳）。
+
+
+# 1. 先进入源目录
+cd /home/user/source_dir
+
+# 2. 使用 find . -print 来生成当前目录下所有文件的列表
+# 3. 将列表喂给 cpio -p，并告诉它目标目录是 /mnt/backup/
+#    -d 选项在这里也很有用，确保目标目录如果不存在会被创建
+find . -print | cpio -pd /mnt/backup/
+
+
+cpio 现在还用在什么地方？
+虽然在日常的手动打包/解包任务中，tar 因为其更简洁的语法而更受欢迎，但 cpio 在一些特定的系统级任务中仍然扮演着不可或-缺的角色。
+RPM 包管理：Linux 的 RPM 包（红帽系发行版如 CentOS, Fedora, Oracle Linux 使用）的内部文件就是用 cpio 格式压缩的。当你安装一个 RPM 包时，系统底层实际上就是在用 cpio 来解包。你可以用 rpm2cpio 命令来手动提取 RPM 包的内容。
+code
+Bash
+rpm2cpio my_package.rpm | cpio -idv
