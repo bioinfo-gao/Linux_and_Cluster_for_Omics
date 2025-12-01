@@ -125,6 +125,15 @@ logrotate -v /etc/logrotate.conf   # 手动执行logrotate进行日志轮转
 # -f 强制轮转日志文件，即使不满足轮转条件也会执行轮转操作
 
 
+# (6) ============= cpio 命令简介 ========================
+# 介绍
+cpio（Copy In/Out）是一个用于创建和提取归档文件的
+
+cpio is short for "Copy In, Copy Out".
+This name perfectly describes its core operational model, which is fundamentally based on processing streams of data.
+命令行工具。它最初设计用于Unix系统，但现在也广泛应用于Linux系统中。与更常见的tar命令类似，
+cpio用于打包和解包文件，但它采用了一种不同的工作方式，主要通过标准输入和标准输出进行数据传输。
+
 cpio 主要做两件事：
 打包 (Copy-Out)：从标准输入 (stdin) 读取一个文件列表，然后把这些文件打包成一个单一的、连续的归档文件（archive file），并输出到标准输出 (stdout)。
 解包 (Copy-In)：从标准输入 (stdin) 读取一个归档文件，然后根据归档中的内容在当前目录下恢复（解包）出原始的文件和目录。
