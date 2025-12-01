@@ -26,6 +26,9 @@ title Linux  # 启动菜单项名称
     initrd /boot/initrd-...  # 设置初始内存盘路径
 
 
+装多系统是，应该先装Windows，再装Linux，因为Windows安装程序会覆盖MBR，引导Linux启动项会丢失
+linux 可以识别 Windows 引导项，并将其添加到 grub 启动菜单中
+
 
 # (3) ============= 更新 grub 配置文件 ========================
 update-grub   # 生成或更新 grub 配置文件 /boot/grub/grub
