@@ -18,6 +18,14 @@ default 0   # 设置默认启动项为第一个菜单项
 timeout 5   # 设置启动菜单等待时间为5秒
 
 splashimage=(hd0,0)/boot/grub/splash.xpm.gz  # 设置启动菜单背景图片位置
+hiddenmenu   # 隐藏启动菜单
+
+title Linux  # 启动菜单项名称
+    root (hd0,0)   # 设置根分区, 即启动主目录位置
+    kernel /boot/vmlinuz-... ro quiet  # 设置内核路径和启动参数
+    initrd /boot/initrd-...  # 设置初始内存盘路径
+
+
 
 # (3) ============= 更新 grub 配置文件 ========================
 update-grub   # 生成或更新 grub 配置文件 /boot/grub/grub
