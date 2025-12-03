@@ -139,7 +139,7 @@ HEAD is now at e475afc add distributed
 # HEAD is now at 83b0afe append GPL
 # 版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位，因为Git可能会找到多个版本号，就无法确定是哪一个了。
 
-# 再小心翼翼地看看readme.txt的内容：
+
 # ========================================= 
 # 快捷键会根据编辑器底部状态栏显示的当前语言模式来选择正确的注释符号。
 # 如果文件是 Python，它使用 #。
@@ -150,11 +150,29 @@ HEAD is now at e475afc add distributed
 # e.g. int x = 10; // This is a single-line comment explaining the variable 'x'.
 # =========================================
 
+
 # ========================================= 
+# 令git reflog用来记录你的每一次命令：
 # ========================================= 
+
+# 穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
+# 要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
+
 # ========================================= 
+在你准备提交前，一杯咖啡起了作用，你猛然发现了stupid boss可能会让你丢掉这个月的奖金！
+
+既然错误发现得很及时，就可以很容易地纠正它。你可以删掉最后一行，手动把文件恢复到上一个版本的状态。
+如果用git status查看一下：
 # ========================================= 
-# ========================================= 
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
 # ========================================= 
 # ========================================= 
 # ========================================= 
