@@ -67,3 +67,17 @@ git filter-repo --force --strip-blobs-bigger-than 100M
 
 
 git reset --hard
+
+
+
+git branch --set-upstream-to=origin/master master
+
+您可以把这想象成三层关系：
+
+Local Repo (本地): 您在这里。
+
+Remote Config (远程配置): git remote -v (像通讯录，只是个地址)。
+
+Upstream Link (跟踪链路): 缺失这层关系！ (VS Code 不知道要把本地 master 发送给谁)。
+
+执行完 git branch --set-upstream-to... 后，这条链路就打通了，"Publish Branch" 就会消失。
