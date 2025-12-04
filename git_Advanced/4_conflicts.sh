@@ -75,3 +75,28 @@ $ git log --graph --pretty=oneline --abbrev-commit
 最后，删除feature1分支：
 
 git branch -d feature1
+
+
+# === 如果报错
+git switch master
+
+fatal: cannot switch branch while rebasing
+
+Consider "git rebase --quit" or "git worktree add".
+
+~/Code/Linux_and_Cluster_for_Omics/git_Advanced :  
+
+在 $\text{Rebase}$ 过程中，$\text{Git}$ 会暂停在每一个冲突点，直到您告诉它如何处理。如果您解决了冲突，但没有执行下一步的 git rebase --continue 或 git add，$\text{Git}$ 就会认为 $\text{Rebase}$ 还在进行中，因此拒绝切换分支。
+
+git add .
+git rebase --continue               #<<<===========================
+
+gao@ DESKTOP-C8OKE65  23:27 $ git rebase --continue
+[detached HEAD 5802097] AND simple
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+Successfully rebased and updated refs/heads/master.
+
+# git rebase --abort 则是放弃merge
+
+
+
