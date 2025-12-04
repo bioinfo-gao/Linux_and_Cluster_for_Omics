@@ -35,12 +35,52 @@ git commit -m "branch test"
 git checkout master
 Switched to branch 'master'
 # =====================================================
+现在，我们把dev分支的工作成果合并到master分支上：
+
+$ git merge dev
+
+Updating 9503173..4823ed6
+Fast-forward
+ git_Advanced/3_branch.sh    | 49 +++++++++++++++++++++++++++++++++++++++++++++++++
+ git_Advanced/branchfile.txt |  1 +
+ 2 files changed, 50 insertions(+)
+ create mode 100644 git_Advanced/3_branch.sh
+ create mode 100644 git_Advanced/branchfile.txt
 # =====================================================
+注意到上面的Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。
+
+当然，也不是每次合并都能Fast-forward，我们后面会讲其他方式的合并。
+
+合并完成后，就可以放心地删除dev分支了：
 # =====================================================
+git branch -d dev
 # =====================================================
+switch
+我们注意到切换分支使用git checkout <branch>，而前面讲过的撤销修改则是git checkout -- <file>，同一个命令，有两种作用，确实有点令人迷惑。
+
+实际上，切换分支这个动作，用switch更科学。因此，最新版本的Git提供了新的git switch命令来切换分支：
+
 # =====================================================
+创建并切换到新的dev分支，可以使用：
+$ git switch -c dev
 # =====================================================
+直接切换到已有的master分支，可以使用：
+$ git switch master
 # =====================================================
+小结
+Git鼓励大量使用分支：
+
+查看分支：git branch
+
+创建分支：git branch <name>
+
+切换分支：git checkout <name>或者git switch <name>
+
+创建+切换分支：git checkout -b <name>或者git switch -c <name>
+
+合并某分支到当前分支：git merge <name>
+
+删除分支：git branch -d <name>
 # =====================================================
 # =====================================================
 # =====================================================
