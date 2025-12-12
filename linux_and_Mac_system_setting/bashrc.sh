@@ -30,3 +30,5 @@ PS1="\[\033[1;35m\]\w : \[\033[0m\] \n\[\033[1;34m\]\u@\[\033[0m\] \[\033[1;31m\
 
 
 export RSTUDIO_WHICH_R=/opt/anaconda3/envs/R41/bin/R
+
+# 可参考 C:\Users\zhen-\Code\R_code\R_Omics_DS\0B_R_version_Control\MacOS\Rstudio.md
