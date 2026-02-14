@@ -32,5 +32,6 @@ git push origin master
 git pull origin master --rebase
 git add AthenOmics_Backup/
 git add -f AthenOmics_Backup/
+git sparse-checkout add AthenOmics_Backup
 git commit -m "Update: Added AthenOmics_Backup folder safely"
 git push origin master
