@@ -8,5 +8,27 @@ lsb_release -a # 显示 Linux 发行版信息, 需要安装 lsb-release 包
 cat /proc/cpuinfo # 显示 CPU 信息, 包括型号、核心数、线程数等，但信息过长无法检查
 cat /proc/cpuinfo | grep processor # 显示 CPU 信息，0-55 共 56 个处理器核心
 cat /proc/meminfo # 显示内存信息
+
+nproc                # 查看可用核心数
+lscpu #| grep "Model name"  # 查看具体型号
+lscpu | grep "型号名称"  # 查看中文操作系统的具体型号
+
+free -h              # 查看总内存、已用和剩余（重点看 Mem 总量）
+#内存：      440Gi        74Gi       203Gi       1.2Gi       163Gi       362Gi
+
+df -h                # 查看各挂载点的容量（重点检查 /home 或数据盘是否够大）
+# 文件系统                   大小  已用  可用 已用% 挂载点
+# tmpfs                       45G  7.3M   45G    1% /run
+# /dev/sda2                  879G  109G  726G   13% /
+# tmpfs                      221G  205M  221G    1% /dev/shm
+# tmpfs                      5.0M  4.0K  5.0M    1% /run/lock
+# efivarfs                   512K  119K  389K   24% /sys/firmware/efi/efivars
+# /dev/sda1                  511M  6.1M  505M    2% /boot/efi
+# /dev/mapper/centos11-home   15T   15T  365G   98% /home
+# tmpfs                       45G  132K   45G    1% /run/user/1000
+# tmpfs                       45G   60K   45G    1% /run/user/1003
+# tmpfs                       45G   60K   45G    1% /run/user/0
+# tmpfs                       45G   64K   45G    1% /run/user/1001
+
 # Ubuntu 授予 sudo
 usermod -aG sudo gaoz
