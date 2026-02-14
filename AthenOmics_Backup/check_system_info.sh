@@ -52,10 +52,42 @@ which R && R --version # NO R
 
 top
 
+# 检查网络连接 
 ping -c 3 www.google.com  # 检查是否能访问外网
+# PING www.google.com (31.13.94.37) 56(84) bytes of data.
+# --- www.google.com ping statistics ---
+# 3 packets transmitted, 0 received, 100% packet loss, time 2050ms
+ping -c 3 www.baidu.com  # 检查是否能访问国内网站
+# 07:16 $ ping -c 3 www.baidu.com
+# PING www.baidu.com (110.242.69.21) 56(84) bytes of data.
+# 64 bytes from 110.242.69.21 (110.242.69.21): icmp_seq=1 ttl=49 time=9.56 ms
+# 64 bytes from 110.242.69.21 (110.242.69.21): icmp_seq=2 ttl=49 time=9.54 ms
+# 64 bytes from 110.242.69.21 (110.242.69.21): icmp_seq=3 ttl=49 time=9.72 ms
+ping -c 3 www.hsph.harvard.edu  # 检查是否能访问哈佛大学公共卫生学院的网站
+# PING www.hsph.harvard.edu (89.106.200.1) 56(84) bytes of data.
+# 64 bytes from edge.redirect.pizza (89.106.200.1): icmp_seq=1 ttl=39 time=195 ms
+# 64 bytes from edge.redirect.pizza (89.106.200.1): icmp_seq=2 ttl=39 time=195 ms
+# 64 bytes from edge.redirect.pizza (89.106.200.1): icmp_seq=3 ttl=39 time=195 ms
+# --- www.hsph.harvard.edu ping statistics ---
+# 3 packets transmitted, 3 received, 0% packet loss, time 2001ms
+# rtt min/avg/max/mdev = 195.273/195.350/195.494/0.101 ms
+# --- www.baidu.com ping statistics ---
+# 3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+# rtt min/avg/max/mdev = 9.543/9.606/9.719/0.080 ms
+
+
 #综合自检脚本 (一键复制)
 echo "--- CPU Info ---" && nproc
 echo "--- Memory Info ---" && free -h
 echo "--- Disk Info ---" && df -h | grep '^/dev/'
 echo "--- OS Info ---" && cat /etc/os-release | grep "PRETTY_NAME"
 echo "--- Conda Env ---" && conda info --envs | head -n 5
+
+# 服务器 IP 是 47.93.78.21。
+# 1. 快速查询结果
+# 通过对该 IP 的 WHOIS 信息查询，可以得出以下结论：
+# 服务提供商（ISP）: 阿里巴巴（Alibaba Cloud / 阿里云）。
+# 该 IP 段属于阿里云的 Beijing Region（北京地域）。
+# 物理位置: 中国，北京。
+# 网络归属: 该 IP 属于 AS37963 (Hangzhou Alibaba Advertising Co.,Ltd.)。
+hostnamectl
