@@ -1,4 +1,5 @@
 # Shift + Enter 直接执行当前行的命令 in this AthenOmics computer,  some other system may Ctrl + Enter 执行当前行并换行
+
 # 本系统拷贝方法： highlight 内容，鼠标点右键， 到新位置，鼠标点右键，选择粘贴（Paste）即可
 
 cat /etc/os-release # 检查 Linux 发行版（Distro）最标准且信息最全的方法
@@ -32,3 +33,29 @@ df -h                # 查看各挂载点的容量（重点检查 /home 或数�
 
 # Ubuntu 授予 sudo
 usermod -aG sudo gaoz
+
+
+conda --version      # 查看是否安装
+conda info --envs    # 查看已有的虚拟环境（看看前任开发者留下了什么）
+
+# docker --version     # 是否支持容器化部署（Nextflow 必备）
+# conda：未找到命令
+# gaoz@ ylxt-Super-Server  07:10 $ conda info --envs    # 查看已有的虚拟环境（看看前任开发者留下了什么）
+# conda：未找到命令
+# gaoz@ ylxt-Super-Server  07:10 $ docker --version     # 是否支持容器化部署（Nextflow 必备）
+# Docker version 28.3.3, build 980b856
+
+which python3 && python3 --version
+# /usr/bin/python3
+# Python 3.10.12
+which R && R --version # NO R 
+
+top
+
+ping -c 3 www.google.com  # 检查是否能访问外网
+#综合自检脚本 (一键复制)
+echo "--- CPU Info ---" && nproc
+echo "--- Memory Info ---" && free -h
+echo "--- Disk Info ---" && df -h | grep '^/dev/'
+echo "--- OS Info ---" && cat /etc/os-release | grep "PRETTY_NAME"
+echo "--- Conda Env ---" && conda info --envs | head -n 5
