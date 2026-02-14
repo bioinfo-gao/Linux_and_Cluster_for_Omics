@@ -3,3 +3,6 @@
 
 cat /etc/os-release # 检查 Linux 发行版（Distro）最标准且信息最全的方法
 uname -a # 显示系统内核版本和其他相关信息
+
+# Ubuntu 授予 sudo
+usermod -aG sudo gaoz

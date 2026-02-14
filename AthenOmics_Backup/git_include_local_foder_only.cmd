@@ -35,3 +35,11 @@ git add -f AthenOmics_Backup/
 git sparse-checkout add AthenOmics_Backup
 git commit -m "Update: Added AthenOmics_Backup folder safely"
 git push origin master
+
+
+# 如果你想要在全局范围内忽略某些文件或文件夹，可以使用以下命令创建一个全局的 .gitignore 文件，并配置 Git 使用它：
+touch ~/.gitignore_global
+
+# ~/.gitignore_global 文件中添加你想要全局忽略的文件或文件夹，
+# git 识别 .gitignore_global 文件中的规则，并在所有 Git 仓库中应用这些规则。
+git config --global core.excludesfile ~/.gitignore_global
