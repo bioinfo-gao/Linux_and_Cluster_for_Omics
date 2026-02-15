@@ -107,3 +107,27 @@ curl ipinfo.io/47.93.78.21
 # 物理服务器在机房里通常受到物理防火墙或路由器 ACL 的限制。
 # 出口被禁：机房管理员可能在交换机端禁止了这台机器主动访问外网，只留了 SSH 端口供你远程连接。
 # 内网隔离：这台机器可能处于一个高安全级别的生信计算簇中。
+# 1. 查看服务器一共有多少个账号
+# Linux 的用户信息存储在 /etc/passwd 中。运行以下命令可以列出所有普通用户（避开系统自带的服务账号）：
+# Bash
+# Filter users with UID >= 1000 (usually human users)
+grep -E '^[^:]+:[^:]+:[1-9][0-9]{3,}' /etc/passwd | cut -d: -f1
+#Logic: 在 Ubuntu 中，普通用户的 UID（User ID）通常从 1000 开始。
+# nobody
+# ylxt
+# muy
+# songz
+# jialh
+# gaohao
+# dev
+# gaoz
+#Alternative: 如果你想看所有账号（包括 root 和系统服务），直接输入 cat /etc/passwd | cut -d: -f1。
+# 2. 查看哪些账号是管理员 (Sudoers)
+# 在 Ubuntu 中，管理员通常被归类在 sudo 组中。你可以通过查看组文件来确认：
+# Bash
+# # Check who is in the 'sudo' group
+getent group sudo | cut -d: -f4
+# ylxt
+#如果服务器是 CentOS 或 RedHat 风格，管理员组通常叫 wheel：
+
+getent group wheel | cut -d: -f4
