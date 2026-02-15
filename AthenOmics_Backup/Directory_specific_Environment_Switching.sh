@@ -63,16 +63,23 @@ Plaintext
     email = bioinfo.gao@gmail.com
 [color]
     ui = auto
-4. Technical Details for VS Code
-为了让 VS Code 也能识别这个逻辑：
+
+# 4. Technical Details for VS Code
+# 为了让 VS Code 也能识别这个逻辑：
 Terminal Integration: 当你在 VS Code 终端 cd 进你的目录时，上面的 PROMPT_COMMAND 会自动把你的颜色变绿（或青色），非常直观。
 Extensions: 在 VS Code 的 Remote - SSH 连接中，你可以设置 "Remote.SSH.Default Extensions"，但由于你是共享账号，建议你在 VS Code 中使用 "Workspace Settings"。
-5. Managing R44 Environment in a Sub-directory
-当你使用 Mamba 安装 R44 时，请务必指定路径，以确保它不占用共享账号的根空间：
+
+# 5. Managing R44 Environment in a Sub-directory
+# 当你使用 Mamba 安装 R44 时，请务必指定路径，以确保它不占用共享账号的根空间：
+
 Bash
 # Create the environment physically inside your sub-folder
 micromamba create -p /home/songz/gaoz/envs/R44 r-base=4.4.1 -c conda-forge
+
 Summary of what happens now:
 cd /home/songz/gaoz: 终端立刻变色（Cyan），Git 自动切换成你的身份，你的 R44 工具路径被激活。
 cd /: 颜色恢复成系统默认，你的私有工具路径被从 PATH 中逻辑移除（虽然环境变量还在，但 IN_GAOZ_ZONE 状态已重置）。
-Does this logic match your workflow? 如果可以，你现在就可以在 VS Code 里修改 .bashrc 了。如果你对 PS1 的颜色有特殊要求（比如深绿或紫色），请告诉我，我给你具体的 ANSI Color Codes。
+
+Does this logic match your workflow? 如果可以，你现在就可以在 VS Code 里修改 .bashrc 了。
+
+#如果你对 PS1 的颜色有特殊要求（比如深绿或紫色），请告诉我，我给你具体的 ANSI Color Codes。
