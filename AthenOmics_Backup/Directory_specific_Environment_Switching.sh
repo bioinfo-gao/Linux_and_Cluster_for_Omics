@@ -52,8 +52,10 @@ export PATH="$GAOZ_HOME/bin:$GAOZ_HOME/micromamba/bin:$PATH"
 export CONDA_ENVS_PATH="$GAOZ_HOME/envs"
 export CONDA_PKGS_DIRS="$GAOZ_HOME/pkgs"
 echo "Welcome gaoz! Environment loaded from sub-directory."
-3. Isolated Git Setup
-在你的目录下创建你个人的 .gitconfig：
+
+# 3. Isolated Git Setup
+# 在你的目录下创建你个人的 .gitconfig：
+
 Plaintext
 # /home/songz/gaoz/.gitconfig
 [user]
