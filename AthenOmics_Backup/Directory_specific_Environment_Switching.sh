@@ -1,8 +1,11 @@
-这是一个非常典型的“多用户共享单一系统账号”的隔离策略。既然你被限制在 /home/songz/gaoz/ 这个子目录下，且没有 sudo 权限，我们需要利用 Shell Hook 技术来实现“进入目录自动加载环境，退出目录恢复原样”的自动化操作。
-在你的英文系统环境下，这种技术通常被称为 "Directory-specific Environment Switching"。
-1. The Strategy: "The Smart .bashrc"
-由于 Linux 默认只在登录时读取 ~/.bashrc，它不会感知你 cd 到了哪个目录。我们将通过修改 ~/.bashrc（共享账号的根配置），让它监控你的路径。
-请将以下代码添加到 /home/songz/.bashrc 的末尾（你可以用 VS Code 直接打开它）：
+# 这是一个非常典型的“多用户共享单一系统账号”的隔离策略。既然你被限制在 /home/songz/gaoz/ 这个子目录下，
+# 且没有 sudo 权限，我们需要利用 Shell Hook 技术来实现“进入目录自动加载环境，退出目录恢复原样”的自动化操作。
+# 在你的英文系统环境下，这种技术通常被称为 "Directory-specific Environment Switching"。
+
+# 1. The Strategy: "The Smart .bashrc"
+# 由于 Linux 默认只在登录时读取 ~/.bashrc，它不会感知你 cd 到了哪个目录。我们将通过修改 ~/.bashrc（共享账号的根配置），让它监控你的路径。
+# 请将以下代码添加到 /home/songz/.bashrc 的末尾（你可以用 VS Code 直接打开它）：
+
 Bash
 # --- gaoz isolation logic ---
 GAOZ_HOME="/home/songz/gaoz"
@@ -29,8 +32,11 @@ function _gaoz_env_check() {
 }
 # Add the function to PROMPT_COMMAND (executes every time you hit Enter)
 export PROMPT_COMMAND="_gaoz_env_check; $PROMPT_COMMAND"
-2. The Private Config: Create .gaoz_profile
-现在，在你的子目录 /home/songz/gaoz/ 下创建一个名为 .gaoz_profile 的文件。这是你真正的个人控制中心。
+
+
+# 2. The Private Config: Create .gaoz_profile
+# 现在，在你的子目录 /home/songz/gaoz/ 下创建一个名为 .gaoz_profile 的文件。这是你真正的个人控制中心。
+
 Bash
 # /home/songz/gaoz/.gaoz_profile
 # 1. Custom PS1 (Color: Cyan for gaoz)
@@ -38,6 +44,7 @@ export PS1='\[\e[1;36m\][gaoz-zone] \[\e[1;34m\]\w\[\e[0m\] \$ '
 # 2. Private Git Config
 # This forces git to use your private config instead of the shared one
 export GIT_CONFIG_GLOBAL="$GAOZ_HOME/.gitconfig"
+
 # 3. Private Bin/Tools Path
 export PATH="$GAOZ_HOME/bin:$GAOZ_HOME/micromamba/bin:$PATH"
 # 4. Conda/Mamba Isolation
