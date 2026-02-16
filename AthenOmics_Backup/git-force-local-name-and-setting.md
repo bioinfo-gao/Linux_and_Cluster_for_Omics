@@ -12,6 +12,9 @@ git config user.email "bioinfo.gao@gmail.com"
 # Add this to your /home/songz/gaoz/.gaoz_profile
 alias git='git -c user.name="gaoz" -c user.email="bioinfo.gao@gmail.com" -c core.excludesfile="/home/songz/gaoz/.gitignore_global"'
 
+# ln -s <TARGET_REAL_FILE_OR_DIR> <LINK_NAME>
+ln -s /home/songz/gaoz/Linux_Cluster_Project/AthenOmics_Backup/.gaoz_profile_raw .gaoz_profile
+
 #  奇怪的是，在git 图形化操作，还是 yiouyou
 # cmd Sucessful! 
 git add .
