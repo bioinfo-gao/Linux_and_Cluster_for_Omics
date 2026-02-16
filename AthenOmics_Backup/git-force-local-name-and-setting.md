@@ -21,7 +21,6 @@ ln -s /home/songz/lhn_work/Project_2025/  lhn_Project_2025
 #  奇怪的是，在git 图形化操作，还是 yiouyou
 # cmd Sucessful! 
 git add .
-
 git commit -m "G-Zone-GZ"
 git push
 
