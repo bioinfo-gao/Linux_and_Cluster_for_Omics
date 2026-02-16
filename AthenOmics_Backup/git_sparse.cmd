@@ -15,3 +15,13 @@ git commit -m "Add AthenOmics CMD folder without downloading other files"
 # 我们可以先 pull 远程的 readme 或 metadata (这只会下载极少的文件)
 git pull origin main --rebase
 git push origin main
+
+# 进入项目目录
+cd /home/songz/gaoz/Linux_Cluster_Project
+# 增加你想下载的新目录名 (例如：New_Analysis_Folder)
+git sparse-checkout add AI_Helper 
+
+git add .
+git commit -m "Add new local directory to G-Zone project"
+# 注意：根据你的设置，这里使用 master 分支
+git push origin master
