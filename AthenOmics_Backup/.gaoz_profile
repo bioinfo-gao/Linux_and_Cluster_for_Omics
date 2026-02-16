@@ -1,0 +1,42 @@
+# /home/songz/gaoz/.gaoz_profile
+#alias git='git -c user.name="gaoz" -c user.email="bioinfo.gao@gmail.com"'
+alias git='git -c user.name="gaoz" -c user.email="bioinfo.gao@gmail.com" -c core.excludesfile="/home/songz/gaoz/.gitignore_global"'
+alias cp='cp -i'
+alias l='ls -l'
+alias ll='ls -l '
+alias lh='ls -lh '
+alias llh='ls -lh '
+alias llah='ls -lah '
+alias la='ls -a'
+alias ld='ls -d */'
+alias lD='ls -R '
+alias l.='ls -d .* --color=auto'
+alias ll.='ls -dl .* --color=auto'
+alias lla='ls -la'
+alias c='clear'
+alias h='history'
+alias rm='rm -i'
+alias mv='mv -i'
+
+export CLICOLOR=1
+
+# 1. Custom PS1 (Color: Cyan for gaoz)
+#export PS1='\[\e[1;36m\][gaoz-zone] \[\e[1;34m\]\w\[\e[0m\] \$ '
+#export PS1="\[\033[1;34m\][\t] \[\033[0m\]\[\033[0;35m\][\$PWD]:\033[0m\]\n\[\033[0;33m\]\u\[\033[0m\]\[\033[1;35m\]@\[\033[0m\]\033[0;32m\]\h\[\033[0m\] \[\033[1;31m\]$\[\033[0m\] "
+export PS1="\[\e[1;36m\]G-Zone\[\e[\033[1;34m\][\t]\[\033[0m\]\[\033[0;35m\][\$PWD]\033[0m\]\n\[\033[0;33m\]\u\[\033[0m\]\[\033[1;35m\]@\[\033[0m\]\033[0;32m\]\h\[\033[0m\] \[\033[1;31m\]$\[\033[0m\] "
+
+# \e 和 \033 是同一个意思。都用于启动 ANSI Escape Codes 来控制颜色。\033 是 027 的八进制表示法。它是最通用、兼容性最强的写法。\e: 是 Bash 提供的快捷简写
+
+# 2. Private Git Config
+# This forces git to use your private config instead of the shared one
+export GIT_CONFIG_GLOBAL="$GAOZ_HOME/.gitconfig"
+
+# 3. Private Bin/Tools Path
+export PATH="$GAOZ_HOME/bin:$GAOZ_HOME/micromamba/bin:$PATH"
+
+# 4. Conda/Mamba Isolation
+# Ensure your environments are created inside your folder
+export CONDA_ENVS_PATH="$GAOZ_HOME/envs"
+export CONDA_PKGS_DIRS="$GAOZ_HOME/pkgs"
+
+#echo "Welcome gaoz! Environment loaded from sub-directory."
