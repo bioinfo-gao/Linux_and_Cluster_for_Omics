@@ -15,6 +15,9 @@ alias git='git -c user.name="gaoz" -c user.email="bioinfo.gao@gmail.com" -c core
 # ln -s <TARGET_REAL_FILE_OR_DIR> <LINK_NAME>
 ln -s /home/songz/gaoz/Linux_Cluster_Project/AthenOmics_Backup/.gaoz_profile_raw .gaoz_profile
 
+ln -s /home/songz/gaoz/Linux_Cluster_Project/AthenOmics_Backup/.gaoz_profile_raw .gaoz_profile
+ln -s /home/songz/lhn_work/Project_2025/  lhn_Project_2025
+
 #  奇怪的是，在git 图形化操作，还是 yiouyou
 # cmd Sucessful! 
 git add .
