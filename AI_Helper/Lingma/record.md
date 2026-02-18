@@ -9,3 +9,12 @@
 还是Connection closed by 128.120.88.249 port 3022
 
 其他两个文件如下，你也下载了：  sftp://X202SC25086784-Z01-F011:ccd467cu@usftp23.novogene.com:22/01.RawData/D9/D9_CKDL260001226-1A_2357GTLT4_L1_1.fq.gz                               sftp://X202SC25086784-Z01-F011:ccd467cu@usftp23.novogene.com:22/01.RawData/D9/D9_CKDL260001226-1A_2357GTLT4_L1_2.fq.gz 
+
+https://nf-co.re/rnaseq/3.22.2/  这里难道不是下载nf-core 的标准网址么？ 有各个版本可以选择
+
+我放弃了，请重新生成一我放弃了，请重新生成一个项目
+01_Junqiang_Ding_0216_docker  完全使用李晓菲的设置
+
+cd /home/songz/gaoz/GZ_Project_2026/01_Junqiang_Ding_0216/01.fq/01.RawData/D6 
+gzip -t D6*.fq.gz  # 测试文件完整性
+

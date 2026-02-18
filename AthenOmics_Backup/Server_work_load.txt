@@ -6,4 +6,24 @@ songz@ylxt-Super-Server $ top
 top - 06:56:01 up 24 days, 12:28,  0 users,  load average: 80.34, 81.35, 81.00
 任务: 1640 total,   4 running, 1631 sleeping,   0 stopped,   5 zombie
 
+songz@ylxt-Super-Server $ top
+top - 07:21:31 up 24 days, 12:54,  0 users,  load average: 76.49, 77.88, 78.76
+任务: 1633 total,   3 running, 1625 sleeping,   0 stopped,   5 zombie
+
+
+任务: 1723 total,   4 running, 1714 sleeping,   0 stopped,   5 zombie
+%Cpu(s): 95.4 us,  2.9 sy,  0.0 ni,  1.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem : 451325.5 total,  68722.9 free,  73082.7 used, 309519.9 buff/cache
+MiB Swap:   2048.0 total,     29.9 free,   2018.1 used. 374171.7 avail Mem 
+
+ 进程号 USER      PR  NI    VIRT    RES    SHR    %CPU  %MEM     TIME+ COMMAND                     
+1275905 gaohao    20   0 4638644   4.4g      0 S  2489   1.0 189095:07 bash                        
+2513090 root      20   0   14.8g   1.5g 216832 S 432.9   0.3   1:11.84 java                        
+2513865 root      20   0 7767312 691296  15232 S 357.7   0.1   0:17.77 java                        
+2338725 root      20   0  214.1g   2.6g 728272 R 100.3   0.6   8769:32 /usr/bin/python             
+2338680 root      20   0  214.2g   2.6g 729156 R  98.7   0.6   8784:42 /usr/bin/python    
+
 Junqiang_Ding
+
+
+李晓菲项目中已经存在的镜像：
