@@ -1,6 +1,8 @@
 # /home/songz/gaoz/.gaoz_profile
 #alias git='git -c user.name="gaoz" -c user.email="bioinfo.gao@gmail.com"'
-alias git='git -c user.name="gaoz" -c user.email="bioinfo.gao@gmail.com" -c core.excludesfile="/home/songz/gaoz/.gitignore_global"'
+#alias git='git -c user.name="gaoz" -c user.email="bioinfo.gao@gmail.com" -c core.excludesfile="/home/songz/gaoz/.gitignore_global"'
+# 建议更新你的 alias，加入 -c http.sslVerify=false
+alias git='git -c user.name="gaoz" -c user.email="bioinfo.gao@gmail.com" -c http.sslVerify=false -c core.excludesfile="/home/songz/gaoz/.gitignore_global"'
 alias cp='cp -i'
 alias l='ls -l'
 alias ll='ls -l '

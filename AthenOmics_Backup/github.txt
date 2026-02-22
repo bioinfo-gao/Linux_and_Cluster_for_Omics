@@ -1,0 +1,88 @@
+你的两把钥匙（id_rsa 和 id_ed25519）在 GitHub 那里全都绑定在了 yiouyou 这个账号上。
+
+由于 yiouyou 没有 bioinfo-gao 仓库的写入权限，所以无论你用哪把旧钥匙，GitHub 都会把你挡在门外。
+
+我们需要为 G-Zone (gaoz) 专门打造一把新钥匙。
+
+🛠️ 第一步：生成 gaoz 专属新密钥
+为了不覆盖掉 yiouyou 的钥匙，我们要给新钥匙起个明确的名字。
+
+Bash
+screen -S gaoz_key_gen
+
+# 生成新密钥，起名为 id_ed25519_gaoz
+ssh-keygen -t ed25519 -C "bioinfo.gao@gmail.com" -f ~/.ssh/id_ed25519_gaoz
+
+# 提示输入密码时直接连按两次回车（不设密码），这样以后 push 方便
+🛠️ 第二步：把新公钥告诉 GitHub
+现在你需要把这把“新钥匙”的副本交给 GitHub 的 bioinfo-gao 账号。
+
+在终端查看公钥内容：
+
+Bash
+cat ~/.ssh/id_ed25519_gaoz.pub
+复制输出的那一长串以 ssh-ed25519 开头、以你的邮箱结尾的代码。
+
+打开浏览器，登录 bioinfo-gao 的 GitHub 账号，进入：
+Settings -> SSH and GPG keys -> New SSH key。
+
+Title 填：ylxt-Super-Server-Gaoz，Key 粘贴刚才复制的内容。
+
+🛠️ 第三步：重写 SSH 路由配置 (~/.ssh/config)
+现在我们要通过 vim 告诉系统：遇到 gaoz 的活，请拿 gaoz 的钥匙。
+
+Bash
+vim ~/.ssh/config
+请将内容修改为：
+
+Plaintext
+# 身份 1: G-Zone (gaoz)
+Host github.com-gaoz
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_gaoz
+    IdentitiesOnly yes
+
+# 身份 2: yiouyou (默认)
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa
+    IdentitiesOnly yes
+
+# 全局保活
+Host *
+    ServerAliveInterval 90
+    ServerAliveCountMax 3
+🛠️ 第四步：测试身份并完成推送
+测试新身份：
+
+Bash
+ssh -T git@github.com-gaoz
+如果看到 Hi bioinfo-gao!（或者 gaoz），你就成功夺回了权限！
+
+修改仓库地址并推送：
+
+Bash
+cd /home/songz/gaoz/Linux_Cluster_Project
+
+# 切换远程地址到 gaoz 专用通道
+git remote set-url origin git@github.com-gaoz:bioinfo-gao/Linux_and_Cluster_for_Omics.git
+
+# 确认你刚才的差异分析结果已经准备好
+# cp /路径/DE_T2_vs_T1_Clean.csv ./
+
+# 提交并推送
+git add .
+git commit -m "Update: DE results with proper sample control and gaoz identity"
+git push origin master
+🏁 总结
+现在的局面终于清晰了：
+
+github.com 默认属于 yiouyou。
+
+github.com-gaoz 专属 gaoz。
+
+以后你在 G-Zone 下进行任何 Git 操作，只要记得远程地址里带上 -gaoz，系统就会自动帮你切换“灵魂”，再也不会报权限错误了。
+
+等你配置好 GitHub 端的公钥并看到 Hi bioinfo-gao! 之后，我们就可以把那份完美的差异分析报告传上去了！需要我帮你确认一下 GitHub 端的设置步骤吗？
