@@ -1,0 +1,40 @@
+在 VS Code 中一行一行执行 R 代码非常简单，主要依靠 R 扩展和快捷键。以下是具体设置和操作步骤：
+1. 基础操作（快捷键）[1][2][3][4][5]
+执行当前行或选区：将光标放在某一行，或者选中多行代码，按下：
+Windows/Linux: Ctrl + Enter[1][6]
+macOS: Command + Enter[1][6][7]
+执行并跳转：如果你希望在执行当前行后，光标自动跳到下一行（类似 RStudio），VS Code 的 R 扩展默认也是支持的。
+
+2. 环境配置步骤（确保能成功运行）
+如果你的快捷键没有反应，请检查以下配置：
+第一步：安装必要的软件[3][6][7][8][9][10]
+安装 R 语言：确保你的电脑上已经安装了 R。[10] 
+
+mamba activated R44_RNA
+R
+version
+# 或者
+R.version
+
+安装 VS Code 扩展：在 VS Code 插件市场搜索并安装 R (由 REditorSupport 开发)。[5][6][8]
+
+第二步：在 R 中安装辅助包
+打开 R 终端（RGui 或终端里的 R），运行以下命令来增强代码补全和绘图体验：
+code
+R
+install.packages("languageserver") # 用于代码补全和语法检查
+install.packages("httpgd")        # 用于在 VS Code 内部显示高质量图片
+第三步：启动 R 终端
+在 VS Code 里执行代码前，建议先手动开启一个 R 终端：
+按下 Ctrl + Shift + P 调出命令面板。[5][6][10]
+输入并选择 R: Create R terminal。[1][11]
+现在你就可以在编辑器里按 Ctrl/Cmd + Enter 发送代码到这个终端了。
+3. 进阶建议（让体验接近 RStudio）
+为了让 VS Code 的 R 环境更好用，建议在 Settings (设置) 中进行以下微调：
+R Session Watcher：确保设置中的 r.sessionWatcher 是开启状态（默认开启）。这样你就能在 VS Code 侧边栏看到变量（Environment）、预览数据框和查看帮助文档。
+使用 Radian 终端（强烈推荐）：
+R 原生终端比较简陋。你可以安装 Python 的 radian 终端（pip install radian），然后在 VS Code 设置里将 r.rterm.option 指向 radian 的路径。它支持语法高亮和多行编辑，体验远超原生终端。
+绘图设置：
+在设置中搜索 r.plot.useHttpgd 并勾选，这样你的绘图就会直接在 VS Code 的一个新标签页中弹出，而不是弹出一个独立的窗口。
+总结
+只需安装 R 扩展，光标停在代码行按 Ctrl/Cmd + Enter 即可。如果无法运行，通常是因为没有先通过命令面板（F1 或 Ctrl+Shift+P）执行 R: Create R terminal。
