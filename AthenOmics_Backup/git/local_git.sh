@@ -1,16 +1,16 @@
-要在同一台 Linux 服务器（songz 用户）上完美切换多个 GitHub 身份，你需要解决两个层面的问题：“你是谁”（Commit 签名） 和 “你怎么证明是你”（SSH/HTTPS 推送权限）。
-目前你的 VSCode Graph 显示 yiouyou 在提交，说明你的 全局配置 (Global Config) 被设置成了 yiouyou。
-以下是针对 gaoz 项目目录的修复方案：
+# 要在同一台 Linux 服务器（songz 用户）上完美切换多个 GitHub 身份，你需要解决两个层面的问题：“你是谁”（Commit 签名） 和 “你怎么证明是你”（SSH/HTTPS 推送权限）。
+# 目前你的 VSCode Graph 显示 yiouyou 在提交，说明你的 全局配置 (Global Config) 被设置成了 yiouyou。
+# 以下是针对 gaoz 项目目录的修复方案：
 
-第一步：修改特定目录的“身份签名” (Git Config)
-Git 允许你为某个特定的文件夹设置独立的身份，这会覆盖全局设置。
-进入你的项目目录：
+# 第一步：修改特定目录的“身份签名” (Git Config)
+# Git 允许你为某个特定的文件夹设置独立的身份，这会覆盖全局设置。
+# 进入你的项目目录：
 
 # Bash
-cd /home/songz/gaoz/GZ_Project_2026/rnaseq-3.12.0
+cd /home/songz/gaoz/Linux_Cluster_Project
 
-设置局部（Local）用户名和邮箱：
-这里的邮箱必须是和你 GitHub 账号 bioinfo-gao 绑定的那个邮箱。
+# 设置局部（Local）用户名和邮箱：
+# 这里的邮箱必须是和你 GitHub 账号 bioinfo-gao 绑定的那个邮箱。
 
 # Bash
 git config --list # 列出所有配置
@@ -98,5 +98,5 @@ ssh -T git@github.com-gaoz
 
 git remote -v
 git add .
-git commit -m "add new"
+git commit -m "add new local ID"
 git push 
