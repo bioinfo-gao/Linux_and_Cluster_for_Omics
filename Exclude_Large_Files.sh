@@ -65,4 +65,4 @@ git commit -m "all files exclude large ones "
 
 git push
 
-/home/songz/gaoz/GZ_Project_2026/.git/index.lock
+#rm /home/songz/gaoz/GZ_Project_2026/.git/index.lock
