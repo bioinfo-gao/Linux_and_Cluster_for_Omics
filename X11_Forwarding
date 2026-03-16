@@ -1,0 +1,34 @@
+通过 X11 Forwarding (最快速，无需安装桌面)
+如果你不想安装整套桌面环境，可以利用 X 协议 把 Linux 里的浏览器窗口“投射”到 Windows 上。
+
+1. 在 Windows 上准备 X Server
+下载并运行 VcXsrv 或 Xming。
+
+2. 在 Linux 上安装浏览器和配置
+code
+Bash
+sudo apt install -y firefox  # 或者刚才的 chrome
+
+3. 使用 SSH 投射窗口
+在 Windows 的 PowerShell 里，使用带 -Y 参数的 SSH 登录：
+code
+Powershell
+ssh -Y gao@你的TailscaleIP
+登录后，直接输入命令启动浏览器：
+
+firefox --no-remote &
+此时，Linux 里的 Firefox 窗口会直接弹在你的 Windows 桌面上。
+
+
+第一步：启动远程桌面
+1)在 Windows 电脑上，按下 Win + R，输入 mstsc 并回车。
+2)powershell : ssh -Y zhen@100.101.19.30 # an -Y option 
+3)在“计算机”一栏输入你的 Linux 服务器的 Tailscale IP（100.101.19.30），点击连接。
+在弹出的界面里，输入你的 Linux 用户名 gao 和你的密码。
+
+第二步：在图形界面里打开 Chrome
+成功进入桌面（XFCE）后，点击左上角的“老鼠”图标（菜单）。
+在 Internet 分类下找到 Google Chrome 并打开。
+关键设置：
+打开 Chrome 后，先进入设置（Settings）-> 下载（Downloads）。
+把下载位置改为 /Work_bio/gao/data。
